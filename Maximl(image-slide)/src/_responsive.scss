@@ -1,0 +1,44 @@
+@media screen and (max-width: 992px) {
+    .main-container {
+        left: 0px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .push-right {
+        #sidebar {
+            left: 0 !important;
+        }
+    }
+}
+
+
+
+
+// /* Responsive styles
+// ================================================== */
+
+// /* Large Devices, Wide Screens */
+// @media (min-width : 1200px) {
+// }
+
+
+// /* Medium Devices, Desktops */
+// @media (min-width: 992px) and (max-width:1199px){
+// }
+
+// /* Small Devices, Tablets */
+// @media (min-width : 768px) and (max-width: 991px) {
+// }
+
+// /* Small Devices Potrait */
+// @media (max-width : 767px){
+// }
+
+// /* Extra Small Devices, Phones */ 
+// @media (max-width : 479px) {
+// }
+
+// /* Custom, iPhone Retina */ 
+// @media (max-width : 320px) and (max-width: 478px)  {
+// }

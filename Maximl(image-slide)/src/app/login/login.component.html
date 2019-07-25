@@ -1,0 +1,81 @@
+<div class="login-page">
+ <div class="content">
+     <form class="login-form" fxFlex [formGroup]="detailsForm" (ngSubmit)="onFormSubmit(detailsForm.value)">
+         <div class="text-center">
+             <h2 class="app-name">Get Started Today!</h2>
+         </div>
+         <div fxFlex  fxlayout="row" fxlayout.lt-md="column">
+            <div fxFlexFill>
+                <mat-form-field class="w-100">
+                    <input matInput placeholder="First Name" type="text" maxlength="20" formControlName="firstname" required>
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-error class="validation-errors">
+                        <ng-container *ngFor="let validation of validation_messages.firstname">
+                            <div class="error-message" *ngIf="detailsForm.get('firstname').hasError(validation.type) && (detailsForm.get('firstname').dirty || detailsForm.get('firstname').touched)">
+                               {{ validation.message }}
+                            </div>
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxFlex  fxlayout="row" fxlayout.lt-md="column">
+            <div fxFlexFill>
+                <mat-form-field class="w-100">
+                    <input matInput placeholder="Last Name" type="text" maxlength="20" formControlName="lastname" required>
+                    <mat-error class="validation-errors">
+                        <ng-container *ngFor="let validation of validation_messages.lastname">
+                            <div class="error-message" *ngIf="detailsForm.get('lastname').hasError(validation.type) && (detailsForm.get('lastname').dirty || detailsForm.get('lastname').touched)">
+                               {{ validation.message }}
+                            </div>
+                        </ng-container>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>                 
+        <div fxFlex  fxlayout="row" fxlayout.lt-md="column">
+             <div fxFlexFill>
+                 <mat-form-field class="w-100">
+                     <input matInput placeholder="Email" type="email" formControlName="email" required>
+                     <mat-icon matSuffix>mail</mat-icon>
+                    <mat-error class="validation-errors">
+                        <ng-container *ngFor="let validation of validation_messages.email">
+                            <div class="error-message" *ngIf="detailsForm.get('email').hasError(validation.type) && (detailsForm.get('email').dirty || detailsForm.get('email').touched)">
+                               {{ validation.message }}
+                            </div>
+                        </ng-container>
+                    </mat-error>
+                 </mat-form-field>
+             </div>
+         </div>
+        <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
+             <div fxFlexFill>
+                 <mat-form-field class="w-100">
+                     <input matInput type="password" formControlName="password1" minlength="8" placeholder="Password" [type]="hide ? 'password' : 'text'" required>
+                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                     </button> 
+                    <mat-error class="validation-errors">
+                        <ng-container *ngFor="let validation of validation_messages.password1">
+                            <div class="error-message" *ngIf="detailsForm.get('password1').hasError(validation.type) && (detailsForm.get('password1').dirty || detailsForm.get('password1').touched)">
+                               {{ validation.message }}
+                            </div>
+                        </ng-container>
+                    </mat-error>   
+                 </mat-form-field>
+             </div>
+         </div>
+         <div fxFlex  fxLayout="row" fxLayout.lt-md="column" style="margin: 20px 0 30px 0">
+             <div fxFlex>
+                 <mat-checkbox color="primary">You are agreeing to our <a href="javascript:void(0)" (click)="terms()">Terms and Conditions.</a> </mat-checkbox>
+             </div>
+         </div>
+         <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
+             <div fxFlexFill>
+                 <button mat-raised-button class="button1" [disabled]="!detailsForm.valid" (click)="onLogin()">Claim your free trial</button>
+             </div>
+         </div>
+
+     </form>
+ </div>
+</div>
